@@ -1,0 +1,12 @@
+@import "../../shared/variables";
+@import "../../shared/mixins";
+
+.ProtectedLayout {
+  display: grid;
+  grid-template-columns: 117px auto;
+  min-height: calc(100vh - 91px);
+
+  &Content {
+    background: $color-content;
+  }
+}

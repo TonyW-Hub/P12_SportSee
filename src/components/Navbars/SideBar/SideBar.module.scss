@@ -1,0 +1,25 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.SideBar {
+  width: 117px;
+  max-width: 117px;
+  min-width: 117px;
+  height: 100%;
+  background-color: $color-secondary;
+  color: $color-white;
+  @include flexColumn();
+  position: relative;
+
+  &Icons {
+    @include flexColumn();
+    gap: $large;
+  }
+
+  .copyright {
+    white-space: nowrap;
+    transform: rotate(270deg);
+    position: absolute;
+    bottom: 110px;
+  }
+}

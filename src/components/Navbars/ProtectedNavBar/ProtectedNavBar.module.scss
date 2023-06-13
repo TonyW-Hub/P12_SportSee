@@ -1,0 +1,33 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.ProtectedNavBar {
+  background-color: $color-secondary;
+  @include flexRow(space-between);
+  gap: 150px;
+  height: 91px;
+  padding-left: $xx-large;
+  padding-right: 100px;
+
+  img {
+    width: 178px;
+    cursor: pointer;
+  }
+
+  aside {
+    @include flexRow(space-between);
+    gap: $large;
+    width: 100%;
+
+    .link {
+      color: $color-content;
+      text-decoration: none;
+      font-size: 24px;
+      font-weight: 500;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

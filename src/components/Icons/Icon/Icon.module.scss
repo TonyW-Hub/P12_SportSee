@@ -1,0 +1,29 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.Icon {
+  background: $color-white;
+  border-radius: 6px;
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  min-height: 60px;
+  @include flexColumn();
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar {
+  width: 64px;
+  height: 64px;
+  min-width: 64px;
+  min-height: 64px;
+
+  &:hover {
+    background: $color-primary;
+
+    img {
+      filter: brightness(0) invert(1);
+    }
+  }
+}
