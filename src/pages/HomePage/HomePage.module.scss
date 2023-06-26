@@ -1,3 +1,30 @@
+@import "../../shared/variables";
+@import "../../shared/mixins";
+
 .HomePage {
-    
+  &Header {
+    h1 {
+      font-size: 48px;
+      font-weight: 500;
+      color: #000000;
+      span {
+        color: $color-primary;
+      }
+    }
+
+    p {
+      font-weight: 400;
+      font-size: 18px;
+    }
+  }
+
+  &Content {
+    @include flexRow(flex-start, flex-start);
+    gap: 30px;
+
+    .cards {
+      @include flexColumn(flex-start, flex-start);
+      gap: 40px;
+    }
+  }
 }

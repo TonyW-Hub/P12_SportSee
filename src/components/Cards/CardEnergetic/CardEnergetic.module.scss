@@ -1,0 +1,29 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.CardEnergetic {
+  background: #fbfbfb;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0212249);
+  @include flexRow(flex-start);
+  gap: 25px;
+  width: 258px;
+  height: 124px;
+  cursor: pointer;
+
+  &Description {
+    @include flexColumn(flex-start, stretch);
+
+    p {
+      font-size: 20px;
+      font-weight: 700;
+      color: $color-text;
+    }
+
+    small {
+        color: $color-text-secondary;
+        text-transform: capitalize;
+        font-size: 14px;
+        font-weight: 500;
+    }
+  }
+}

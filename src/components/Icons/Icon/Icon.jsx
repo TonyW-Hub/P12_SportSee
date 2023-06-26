@@ -34,6 +34,7 @@ export const Icon = ({ icon = "", alt = "", variant = "sidebar" }) => {
 
   return (
     <div className={`${Styles.Icon} ${setProps()}`}>
+      {variant !== "sidebar" && <div className={Styles.bg}></div>}
       <img src={icon} alt={alt} />
     </div>
   );
