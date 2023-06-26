@@ -3,6 +3,7 @@ import Styles from "./HomePage.module.scss";
 import { useData } from "../../hook/useData";
 import { APIDataManager } from "../../components/API/APIDataManager/APIDataManager";
 import { CardEnergetic } from "../../components/Cards/CardEnergetic/CardEnergetic";
+import { RadarCharts } from "../../components/Charts/RadarChart/RadarChart";
 
 const userId = "12";
 
@@ -24,7 +25,10 @@ export const HomePage = () => {
         </header>
 
         <section className={Styles.HomePageContent}>
-          <div className={Styles.charts}></div>
+          <div className={Styles.charts}>
+            <RadarCharts userName={userData?.userInfos?.firstName} />
+          </div>
+
           <div className={Styles.cards}>
             <CardEnergetic
               energy="calories"

@@ -1,0 +1,8 @@
+@import "../../../shared/variables";
+
+.RadarChart {
+  background: #282d30;
+  border-radius: $x-small;
+  width: 310px !important;
+  height: 263px !important;
+}
