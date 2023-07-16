@@ -1,0 +1,50 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.CircleChart {
+  display: block;
+  height: calc(263px - 40px);
+  width: calc(258px - 40px);
+
+  .circle {
+    stroke: $color-primary;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    animation: progress 1s ease-out forwards;
+    text-align: center;
+  }
+  .innerCircle {
+    fill: $color-white;
+  }
+
+  .percentage {
+    font-size: 0.3em;
+    text-anchor: middle;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .text {
+    fill: #666;
+    font-size: 0.2em;
+    text-anchor: middle;
+    text-align: center;
+  }
+}
+
+.container {
+  border-radius: 5px;
+  background: $color-content;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.02);
+  width: 258px;
+  height: 263px;
+  max-height: 263px;
+  @include flexRow();
+}
+
+@keyframes progress {
+  0% {
+    stroke-dasharray: 0 100;
+  }
+}

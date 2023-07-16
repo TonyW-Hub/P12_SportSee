@@ -4,55 +4,74 @@ import { useData } from "../../hook/useData";
 import { APIDataManager } from "../../components/API/APIDataManager/APIDataManager";
 import { CardEnergetic } from "../../components/Cards/CardEnergetic/CardEnergetic";
 import { RadarCharts } from "../../components/Charts/RadarChart/RadarChart";
-
-const userId = "12";
+import { BarsChart } from "../../components/Charts/BarsChart/BarsChart";
+import { API_KEYS, userId } from "../../data/project/appAPIResource";
+import { CircleChart } from "../../components/Charts/CircleChart/CircleChart";
+import { LinesChart } from "../../components/Charts/LinesChart/LinesChart";
 
 export const HomePage = () => {
   const {
-    data: userData,
-    loading: userLoading,
-    error: userError,
-  } = useData({ resource: `user/${userId}` });
+    data: userInfosData,
+    loading: userInfosLoading,
+    error: userInfosError,
+  } = useData({ id: API_KEYS.userInfo, userId });
+  const {
+    data: userScoreData,
+    loading: userScoreLoading,
+    error: userScoreError,
+  } = useData({ id: API_KEYS.userScore, userId });
+  const {
+    data: userEnergiesData,
+    loading: userEnergiesLoading,
+    error: userEnergiesError,
+  } = useData({ id: API_KEYS.userEnergies, userId });
 
   return (
     <div className={Styles.HomePage}>
-      <APIDataManager loading={userLoading} error={userError}>
+      <APIDataManager loading={userInfosLoading} error={userInfosError}>
         <header className={Styles.HomePageHeader}>
           <h1>
-            Bonjour <span>{userData?.userInfos?.firstName}</span>
+            Bonjour <span>{userInfosData?.firstName}</span>
           </h1>
           <p>Félicitations ! Vous avez explosé vos objectifs hier 👏</p>
         </header>
+      </APIDataManager>
 
-        <section className={Styles.HomePageContent}>
-          <div className={Styles.charts}>
-            <RadarCharts userName={userData?.userInfos?.firstName} />
-          </div>
+      <section className={Styles.HomePageContent}>
+        <div className={Styles.charts}>
+          <BarsChart />
+          <LinesChart />
+          <RadarCharts userName={userInfosData?.firstName} />
+          <APIDataManager loading={userScoreLoading} error={userScoreError}>
+            <CircleChart score={userScoreData} />
+          </APIDataManager>
+        </div>
 
+        <APIDataManager loading={userEnergiesLoading} error={userEnergiesError}>
           <div className={Styles.cards}>
             <CardEnergetic
               energy="calories"
-              energyCount={userData?.keyData?.calorieCount}
+              energyCount={userEnergiesData?.calorieCount}
               measure="Cal"
             />
             <CardEnergetic
               energy="proteines"
-              energyCount={userData?.keyData?.proteinCount}
+              energyCount={userEnergiesData?.proteinCount}
               measure="g"
             />
             <CardEnergetic
               energy="glucides"
-              energyCount={userData?.keyData?.carbohydrateCount}
+              energyCount={userEnergiesData?.carbohydrateCount}
               measure="g"
             />
             <CardEnergetic
               energy="lipides"
-              energyCount={userData?.keyData?.lipidCount}
+              energyCount={userEnergiesData?.lipidCount}
               measure="g"
             />
           </div>
-        </section>
-      </APIDataManager>
+        </APIDataManager>
+      </section>
     </div>
   );
 };

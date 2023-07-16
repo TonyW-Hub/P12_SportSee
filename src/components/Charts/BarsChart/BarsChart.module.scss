@@ -1,0 +1,68 @@
+@import "../../../shared/variables";
+@import "../../../shared/mixins";
+
+.BarsChart {
+  height: 328px !important;
+  width: 100% !important;
+  max-width: 830px !important;
+  background-color: $color-content;
+  border-radius: 5px;
+
+  .legend {
+    @include flexRow(space-between);
+    padding-right: 20px;
+
+    p {
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    ul {
+      @include flexRow();
+      gap: 35px;
+      list-style: none;
+
+      li {
+        position: relative;
+        font-size: 14px;
+        font-weight: 500;
+        color: #74798c;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: -15px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 8px;
+          height: 8px;
+          background: $color-secondary;
+          border-radius: 50%;
+        }
+
+        &:last-child {
+          &::before {
+            background: $color-primary;
+          }
+        }
+      }
+    }
+  }
+
+  .customTooltip {
+    background: $color-primary;
+    padding: 5px;
+
+    p {
+      color: $color-white;
+      text-align: center;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 24px;
+    }
+  }
+
+  tspan {
+    font-weight: 100 !important;
+  }
+}

@@ -24,15 +24,10 @@
 
     .charts {
       @include flexRow(flex-start, flex-start);
+      flex-wrap: wrap;
+      gap: 20px;
       width: 100%;
       height: auto;
-
-      .radar {
-        background: #282d30;
-        border-radius: $x-small;
-        width: 258px !important;
-        height: 263px !important;
-      }
     }
 
     .cards {
