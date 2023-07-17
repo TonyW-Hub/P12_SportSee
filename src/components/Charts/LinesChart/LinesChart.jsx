@@ -31,7 +31,7 @@ export const LinesChart = () => {
     if (active && payload && payload.length) {
       return (
         <div className={Styles.customTooltip}>
-          <p className={Styles.value}>{payload[0].value}ms</p>
+          <p className={Styles.value}>{payload[0].value}min</p>
         </div>
       );
     }

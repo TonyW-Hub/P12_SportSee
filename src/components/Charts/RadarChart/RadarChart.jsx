@@ -32,6 +32,7 @@ export const RadarCharts = ({ userName }) => {
             dataKey="kind"
             stroke="var(--color-white)"
             tickLine={false}
+            axisLine={false}
             style={{ fontSize: "12px", textTransform: "capitalize" }}
           />
           <Radar

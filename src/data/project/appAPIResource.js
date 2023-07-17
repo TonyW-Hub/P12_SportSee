@@ -1,5 +1,5 @@
 // userId can have value 12 or 18
-export const userId = "12";
+export const userId = "18";
 
 export const API_KEYS = {
   userActivity: 1,
