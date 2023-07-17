@@ -12,16 +12,14 @@ import {
 } from "recharts";
 import { useData } from "../../../hook/useData";
 import { APIDataManager } from "../../API/APIDataManager/APIDataManager";
-import { API_KEYS } from "../../../data/project/appAPIResource";
-
-const userId = "12";
+import { API_KEYS,userId } from "../../../data/project/appAPIResource";
 
 export const BarsChart = () => {
   const {
     data: activityData,
     loading: activityLoading,
     error: activityError,
-  } = useData({ id: API_KEYS.userActivity, userId });
+  } = useData({ resource: API_KEYS.userActivity, userId });
 
   const CustomLegend = ({ payload }) => {
     return (

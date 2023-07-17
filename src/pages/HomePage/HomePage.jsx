@@ -14,17 +14,17 @@ export const HomePage = () => {
     data: userInfosData,
     loading: userInfosLoading,
     error: userInfosError,
-  } = useData({ id: API_KEYS.userInfo, userId });
+  } = useData({ resource: API_KEYS.userInfo, userId });
   const {
     data: userScoreData,
     loading: userScoreLoading,
     error: userScoreError,
-  } = useData({ id: API_KEYS.userScore, userId });
+  } = useData({ resource: API_KEYS.userScore, userId });
   const {
     data: userEnergiesData,
     loading: userEnergiesLoading,
     error: userEnergiesError,
-  } = useData({ id: API_KEYS.userEnergies, userId });
+  } = useData({ resource: API_KEYS.userEnergies, userId });
 
   return (
     <div className={Styles.HomePage}>

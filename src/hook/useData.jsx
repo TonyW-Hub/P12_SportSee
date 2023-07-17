@@ -8,21 +8,22 @@ const BASE_URL = "http://localhost:3000";
 /**
  *
  * @param {Object} props
- * @param {string} props.resource Add string path to access on backend
+ * @param {API_KEYS} props.resource Use API_KEYS object to select the current resource selected
+ * @param {string} props.userId Add the user id to fetch the correct data
  * @returns
  */
-export const useData = ({ id, userId = "12" }) => {
+export const useData = ({ resource, userId = "12" }) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (!id) return;
+    if (!resource) return;
     let isMounted = true;
 
     setLoading(true);
 
-    const getItem = APP_API_RESOURCE.find((el) => el.id === id);
+    const getItem = APP_API_RESOURCE.find((el) => el.id === resource);
 
     const url = getItem.url(userId);
 
@@ -37,7 +38,7 @@ export const useData = ({ id, userId = "12" }) => {
 
         const data = await res.json();
 
-        setData(mapper[id](data));
+        setData(mapper[resource](data));
       } catch (error) {
         if (!isMounted) return;
         setError(true);
@@ -51,7 +52,7 @@ export const useData = ({ id, userId = "12" }) => {
     return () => {
       isMounted = false;
     };
-  }, [id, userId]);
+  }, [resource, userId]);
 
   return { data, loading, error };
 };

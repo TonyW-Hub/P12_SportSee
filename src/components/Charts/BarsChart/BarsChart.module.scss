@@ -4,9 +4,16 @@
 .BarsChart {
   height: 328px !important;
   width: 100% !important;
-  max-width: 830px !important;
+  max-width: 830px;
   background-color: $color-content;
   border-radius: 5px;
+
+  @media screen and (min-width: 1540px) {
+    max-width: 950px;
+  }
+  @media screen and (min-width: 1840px) {
+    max-width: 100%;
+  }
 
   .legend {
     @include flexRow(space-between);

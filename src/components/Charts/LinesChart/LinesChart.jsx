@@ -17,7 +17,7 @@ export const LinesChart = () => {
     data: averageSessionsData,
     loading: averageSessionsLoading,
     error: averageSessionsError,
-  } = useData({ id: API_KEYS.userAverageSessions, userId });
+  } = useData({ resource: API_KEYS.userAverageSessions, userId });
 
   const CustomLegend = () => {
     return (

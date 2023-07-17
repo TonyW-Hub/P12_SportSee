@@ -31,8 +31,8 @@ export const mapper = {
       6: "Intensité",
     };
 
-    const newObj = obj?.data?.data?.map((current, index) => {
-      current.kind = goodName[index + 1];
+    const newObj = obj?.data?.data?.map((current) => {
+      current.kind = goodName[current.kind];
       return current;
     });
 

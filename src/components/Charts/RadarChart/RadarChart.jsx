@@ -9,16 +9,14 @@ import {
 } from "recharts";
 import { useData } from "../../../hook/useData";
 import { APIDataManager } from "../../API/APIDataManager/APIDataManager";
-import { API_KEYS } from "../../../data/project/appAPIResource";
-
-const userId = "12";
+import { API_KEYS, userId } from "../../../data/project/appAPIResource";
 
 export const RadarCharts = ({ userName }) => {
   const {
     data: performanceData,
     loading: performanceLoading,
     error: performanceError,
-  } = useData({ id: API_KEYS.userPerformance, userId });
+  } = useData({ resource: API_KEYS.userPerformance, userId });
 
   return (
     <APIDataManager loading={performanceLoading} error={performanceError}>
